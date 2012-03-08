@@ -1,4 +1,3 @@
-
 Socket.IO protocol
 ==================
 
@@ -445,7 +444,7 @@ as follows:
 <!--
 The message type is a single digit integer.
 -->
-message typ は一桁の整数です。
+message type は一桁の整数です。
 
 <!--
 The message id is an incremental integer, required for ACKs (can be ommitted).
