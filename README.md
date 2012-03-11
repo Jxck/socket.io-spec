@@ -390,7 +390,7 @@ write to the client but not vice-versa), should perform `POST` requests to send
 data back to the server to the same endpoint URI.
 -->
 通信コネクションが、単方向通信として初期化される(サーバはクライアントに送信できるが、逆はできない)
-場合、 `POST` リクエストを同じエンドポイント URI のサーバに送り返す挙動をとる必要があります。
+場合、 `POST` リクエストを同じ endpoint URI のサーバに送り返す挙動をとる必要があります。
 
 
 <!--
@@ -459,7 +459,7 @@ If the message id is followed by a `+`, the ACK is not handled by socket.io,
 <!--
 but by the user instead.
 -->
-しかし、ユーザが処理する場合はその限りではありません。
+代わりにユーザによって処理されます。
 
 <!--
 Socket.IO has built-in support for multiple channels of communication (which we
@@ -467,7 +467,7 @@ call "multiple sockets"). Each socket is identified by an endpoint (can be
 omitted).
 -->
 Socket.IO  は標準で multiple channels をサポートします。("multiple sockets")
-各々のソケットはエンドポイントで識別されます(省略可能)
+各々のソケットは endpoint で識別されます(省略可能)
 
 
 ### (`0`) Disconnect
@@ -476,14 +476,14 @@ Socket.IO  は標準で multiple channels をサポートします。("multiple 
 Signals disconnection. If no endpoint is specified, disconnects the entire
 socket.
 -->
-切断を知らせるシグナルです。もし特定のエンドポイントが指定されなかった場合、全てのソケットを切断します。
+切断を知らせるシグナルです。もし特定の endpoint が指定されなかった場合、全てのソケットを切断します。
 
 Examples:
 
 <!--
 - Disconnect a socket connected to the `/test` endpoint.
 -->
-- `/test` というエンドポイントに接続するソケットを切断します。
+- `/test` という endpoint に接続するソケットを切断します。
 
       0::/test
 
@@ -501,14 +501,14 @@ Only used for multiple sockets. Signals a connection to the endpoint.
 Once the server receives it, it's echoed back to the client.
 -->
 multiple sockets を利用している場合に限り使用します。
-エンドポイントにシグナルが送信されます。
+ endpoint に接続の旨を合図します。
 一旦サーバがそれを受信したら、クライアントにエコーバックします。
 
 <!--
 Example, if the client is trying to connect to the endpoint /test, a message
 like this will be delivered:
 -->
-例えば、クライアントが /test エンドポイントに接続を試みる場合、以下のようなメッセージが送信されます。
+例えば、クライアントが /test  endpoint に接続を試みる場合、以下のようなメッセージが送信されます。
 
     '1::' [path] [query]
 
@@ -520,7 +520,7 @@ Example:
 To acknowledge the connection, the server echoes back the message. Otherwise,
 the server might want to respond with a error packet.
 -->
-接続を承認するため、サーバはメッセージをエコーバックします。
+接続に応答するために、サーバはメッセージをエコーバックします。
 そうでなければ、サーバはエラーパケットを送信する可能性もあります。
 
 ### (`2`) Heartbeat
@@ -531,10 +531,10 @@ the server. It's up to the client to decide the padding (for example, if the
 heartbeat timeout negogiated with the server is 20s, the client might want to
 send a heartbeat evert 15s).
 -->
-ハートビートを送信します。ハートビードはサーバと取り決めた感覚で送信される必要があります。
-クライアントは余分な値を決定します。
+ハートビートを送信します。ハートビートはサーバと取り決めた間隔以内に送信される必要があります。
+その間隔の間のどのタイミングで送信するかはクライアントが決定します。
 (もしサーバとの間で heartbeat timeout が 20 秒と決まった場合、
-クライアントは、 15 秒間隔での送信を繰り返すでしょう)
+クライアントは 15 秒毎に送信するかもしれません)
 
 ### (`3`) Message
 
@@ -586,7 +586,7 @@ The event names
 <!--
 are reserved, and cannot be used by clients or servers with this message type.
 -->
-クライアント/サーバともにこれらをメッセージタイプとすることはできません。
+クライアント/サーバともに、これらをこのメッセージタイプとすることはできません。
 
 <!--
 ### (`6`) ACK
@@ -642,7 +642,7 @@ No operation(なにもしない)。例えば、ポーリングがタイムアウ
 A Socket.IO server must provide an endpoint to force the disconnection of the
 socket.
 -->
-Socket.IO サーバは、ソケットを強制切断するためのエンドポイントを提供する必要があります。
+Socket.IO サーバは、ソケットを強制切断するための endpoint を提供する必要があります。
 
 <!--
 While closing the transport connection is enough to trigger a disconnection, it
