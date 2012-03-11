@@ -428,7 +428,7 @@ delivered (i.e: buffered messages), the following is used:
 Transports where the framing overhead is expensive (ie: when the xhr-polling
 transport tries to send data to the server).
 -->
-通信におけるフレーミングのオーバーヘッドが大きいところで
+これは、通信におけるフレーミングのオーバーヘッドが大きいところで使用されます。
 (ie: xhr-polling がサーバにデータを送信する場合)
 
 ### Encoding
