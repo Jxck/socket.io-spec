@@ -270,7 +270,7 @@ The client will perform an initial HTTP POST request like the following
     http://example.com/socket.io/1/
 
 <!--
-The absence of the `tranport id` and `session id` segments will signal the server
+The absence of the `transport id` and `session id` segments will signal the server
 this is a new, non-handshaken connection.
 -->
 `transport id` と `session id` が無かった場合、サーバはこの要求をハンドシェイクが
@@ -528,7 +528,7 @@ the server might want to respond with a error packet.
 <!--
 Sends a heartbeat. Heartbeats must be sent within the interval negotiated with
 the server. It's up to the client to decide the padding (for example, if the
-heartbeat timeout negogiated with the server is 20s, the client might want to
+heartbeat timeout negotiated with the server is 20s, the client might want to
 send a heartbeat evert 15s).
 -->
 ハートビートを送信します。ハートビートはサーバと取り決めた間隔以内に送信される必要があります。
@@ -646,7 +646,7 @@ Socket.IO サーバは、ソケットを強制切断するための endpoint を
 
 <!--
 While closing the transport connection is enough to trigger a disconnection, it
-sometimes is desireable to make sure no timeouts are activated and the
+sometimes is desirable to make sure no timeouts are activated and the
 disconnection events fire immediately.
 -->
 通信コネクションを閉じるには、 disconnection イベントをトリガーすれば十分です。
